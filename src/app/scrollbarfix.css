@@ -1,0 +1,7 @@
+body {
+    overflow: auto !important;
+}
+
+body, header {
+    padding-right: 0 !important;
+}
