@@ -1,15 +1,20 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
-import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import CustomDatePicker from './CustomDatePicker';
 import NavbarBreadcrumbs from './NavbarBreadcrumbs';
-import MenuButton from './MenuButton';
 import ColorModeIconDropdown from '@/theme/ColorModeIconDropdown';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import { Tab } from './Page'
 
-import Search from './Search';
+function tabName(tab: Tab) {
+  switch (tab) {
+  case 'analytics': return "Analytics";
+  case 'clients': return "Users";
+  case 'ads': return "Ads";
+  }
+}
 
-export default function Header({ item, date, setDate } : { item: string, date: dayjs.Dayjs | null, setDate: React.Dispatch<React.SetStateAction<dayjs.Dayjs | null>> }) {
+export default function Header(props : { tab: Tab, date: dayjs.Dayjs | null, setDate: React.Dispatch<React.SetStateAction<dayjs.Dayjs | null>> }) {
   return (
     <Stack
       direction="row"
@@ -23,10 +28,10 @@ export default function Header({ item, date, setDate } : { item: string, date: d
       }}
       spacing={2}
     >
-      <NavbarBreadcrumbs item={item} />
+      <NavbarBreadcrumbs item={tabName(props.tab)} />
       <Stack direction="row" sx={{ gap: 1 }}>
         {/* <Search /> */}
-        <CustomDatePicker date={date} setDate={setDate} />
+        <CustomDatePicker date={props.date} setDate={props.setDate} />
         {/* <MenuButton showBadge aria-label="Open notifications">
           <NotificationsRoundedIcon />
         </MenuButton> */}
