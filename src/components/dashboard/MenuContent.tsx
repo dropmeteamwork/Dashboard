@@ -14,11 +14,12 @@ import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import { Tab } from './Page';
 
 const mainListItems = [
   // { text: 'Home', icon: <HomeRoundedIcon /> },
   { text: 'Analytics', icon: <AnalyticsRoundedIcon />, tab: 'analytics', href: '/dashboard' },
-  { text: 'Clients', icon: <PeopleRoundedIcon />, tab: 'clients', href: '/dashboard/clients' },
+  { text: 'Users', icon: <PeopleRoundedIcon />, tab: 'clients', href: '/dashboard/users' },
   { text: 'Coupons', icon: <LocalOfferIcon />, tab: 'coupons', href: '/dashboard/coupons' },
   { text: 'Ads', icon: <LiveTvIcon />, tab: 'ads', href: '/dashboard/ads' },
   // { text: 'Tasks', icon: <AssignmentRoundedIcon /> },
@@ -30,7 +31,7 @@ const secondaryListItems = [
   { text: 'Feedback', icon: <HelpRoundedIcon /> },
 ];
 
-export default function MenuContent({ tab } : { tab: 'analytics' | 'clients' }) {
+export default function MenuContent({ tab } : { tab: Tab }) {
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: 'space-between' }}>
       <List dense>

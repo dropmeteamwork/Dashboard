@@ -6,25 +6,22 @@ import Drawer, { drawerClasses } from '@mui/material/Drawer';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
-import MenuButton from './MenuButton';
 import MenuContent from './MenuContent';
 import CardAlert from './CardAlert';
 import { useTheme } from '@mui/material/styles';
+import { Tab } from './Page'
 
-interface SideMenuMobileProps {
+export default function SideMenuMobile(props: {
   open: boolean | undefined;
   toggleDrawer: (newOpen: boolean) => () => void;
-  tab: 'analytics' | 'clients'
-}
-
-export default function SideMenuMobile({ open, toggleDrawer, tab }: SideMenuMobileProps) {
+  tab: Tab
+}) {
   const theme = useTheme()
   return (
     <Drawer
       anchor="right"
-      open={open}
-      onClose={toggleDrawer(false)}
+      open={props.open}
+      onClose={props.toggleDrawer(false)}
       sx={{
         zIndex: (theme) => theme.zIndex.drawer + 1,
         [`& .${drawerClasses.paper}`]: {
@@ -60,7 +57,7 @@ export default function SideMenuMobile({ open, toggleDrawer, tab }: SideMenuMobi
         </Stack>
         <Divider />
         <Stack sx={{ flexGrow: 1 }}>
-          <MenuContent tab={tab} />
+          <MenuContent tab={props.tab} />
           <Divider />
         </Stack>
         <CardAlert />
