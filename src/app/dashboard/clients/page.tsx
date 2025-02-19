@@ -60,7 +60,7 @@ export default function Clients(props: {}) {
               mt: { xs: 8, md: 0 },
             }}
           >
-            <Header item='Clients' date={date} setDate={setDate} />
+            <Header tab='clients' date={date} setDate={setDate} />
             <MainGrid tab='clients' data={{
               machine: machine,
               date: date,
